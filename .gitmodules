@@ -1,0 +1,3 @@
+[submodule "monome-classes"]
+	path = monome-classes
+	url = https://github.com/bensteinberg/monome-classes.git
