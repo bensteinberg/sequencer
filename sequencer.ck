@@ -56,10 +56,10 @@ PageEvent p;
 0 => int currentPage;
 
 // set up initial conditions
+grid.ledAllOff();
 // start unmuted and show it
 0 => int mute;
 grid.ledOn(0, 7);
-grid.ledOff(1, 7);
 // use full loop
 0 => int loopStart;
 15 => int loopEnd;
