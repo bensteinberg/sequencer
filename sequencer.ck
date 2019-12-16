@@ -253,43 +253,43 @@ fun void buttonResponder(Event e)
             grid.ledOff(3, 7);
           }
         }
-			  if (grid.x == 4) {
-				  // new blank page
-				  if (grid.state == 1) {
-					  grid.ledOn(4, 7);
-						sequencer << [0, 0, 0, 0, 0, 0];
-				  } else {
-					  grid.ledOff(4, 7);
-				  }
-			  }
-			  if (grid.x == 5) {
-				  // new page from current
-				  if (grid.state == 1) {
-					  grid.ledOn(5, 7);
-						sequencer << [sequencer[currentPage][0],
-						              sequencer[currentPage][1],
-					                sequencer[currentPage][2],
-						              sequencer[currentPage][3],
-						              sequencer[currentPage][4],
-						              sequencer[currentPage][5]];
-				  } else {
-					  grid.ledOff(5, 7);
-				  }
-			  }
-			  if (grid.x == 6) {
-				  // remove a page
-				  if (grid.state == 1) {
-					  grid.ledOn(6, 7);
-						// remove last page WHEN NOT ON IT
-						// i.e. never remove very last (aka first) page
-						if (currentPage != sequencer.cap() - 1) {
-							sequencer.popBack();
-						}
-				  } else {
-					  grid.ledOff(6, 7);
-				  }
-			  }
-		  }
+	if (grid.x == 4) {
+	  // new blank page
+	  if (grid.state == 1) {
+	    grid.ledOn(4, 7);
+	    sequencer << [0, 0, 0, 0, 0, 0];
+	  } else {
+	    grid.ledOff(4, 7);
+	  }
+	}
+	if (grid.x == 5) {
+	  // new page from current
+	  if (grid.state == 1) {
+	    grid.ledOn(5, 7);
+	    sequencer << [sequencer[currentPage][0],
+                          sequencer[currentPage][1],
+                          sequencer[currentPage][2],
+                          sequencer[currentPage][3],
+                          sequencer[currentPage][4],
+                          sequencer[currentPage][5]];
+	  } else {
+	    grid.ledOff(5, 7);
+	  }
+	}
+	if (grid.x == 6) {
+	  // remove a page
+	  if (grid.state == 1) {
+	    grid.ledOn(6, 7);
+	    // remove last page WHEN NOT ON IT
+	    // i.e. never remove very last (aka first) page
+	    if (currentPage != sequencer.cap() - 1) {
+	      sequencer.popBack();
+	    }
+	  } else {
+	    grid.ledOff(6, 7);
+	  }
+	}
+      }
     }
     1::ms => now;
   }
